@@ -225,7 +225,7 @@ function Hero() {
   return (
     <section id="top" className="relative mx-auto flex min-h-[780px] max-w-[1360px] flex-col justify-end px-5 pb-16 pt-36 sm:px-8 sm:pb-20 lg:min-h-[880px] lg:px-16 lg:pb-24">
       <div className="hero-grid pointer-events-none absolute inset-0 -z-0 opacity-70" />
-      <div className="relative z-10 grid items-end gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+      <div className="relative z-10 flex flex-col gap-14">
         <div ref={reveal.ref} className={reveal.className}>
           <div className="mb-8 flex items-center gap-3 text-[#668079]">
             <span className="h-px w-9 bg-[#66a48f]" />
@@ -248,7 +248,7 @@ function Hero() {
             </a>
           </div>
         </div>
-        <div className="relative lg:pb-2">
+        <div className="relative w-full max-w-[920px] self-end lg:mr-8 lg:pb-2">
           <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-[#dce9df]/45 blur-2xl" />
            <ProjectLinkCard image={projectImages.model} />
           <div className="absolute -bottom-6 -left-3 rounded-2xl border border-[#b9c5b9]/60 bg-[#f6f3eb]/85 px-4 py-3 shadow-[0_12px_30px_rgba(31,58,54,0.08)] backdrop-blur-md sm:-left-6">
@@ -294,7 +294,6 @@ function About() {
 
 function ProjectSection({
   number,
-  title,
   kicker,
   children,
   image,
@@ -303,7 +302,6 @@ function ProjectSection({
   dark = false,
 }: {
   number: string;
-  title: string;
   kicker: string;
   children: ReactNode;
   image?: ProjectImage;
@@ -321,8 +319,7 @@ function ProjectSection({
             <span className={`h-px w-12 ${dark ? 'bg-[#66a48f]' : 'bg-[#b9c5b9]'}`} />
             <span className="eyebrow">{kicker}</span>
           </div>
-          <h3 className={`text-4xl font-bold leading-[0.95] tracking-[-0.065em] sm:text-6xl ${dark ? 'text-[#f6f3eb]' : 'text-[#173c39]'}`}>{title}</h3>
-          <div className={`mt-8 text-[15px] leading-7 ${dark ? 'text-[#c1d6c9]' : 'text-[#51706a]'}`}>{children}</div>
+          <div className={`mt-7 max-w-lg text-[15px] leading-7 ${dark ? 'text-[#c1d6c9]' : 'text-[#51706a]'}`}>{children}</div>
         </div>
         {image && (
           <ImageButton image={image} onOpen={onOpen} className={`aspect-[1.35] ${dark ? 'ring-1 ring-[#7ea795]/30' : ''}`} />
@@ -354,27 +351,27 @@ function Projects({ onOpen }: { onOpen: (image: ProjectImage) => void }) {
           </div>
         </div>
       </div>
-      <ProjectSection number="01" kicker="The idea" title="A board built for learning." image={projectImages.model} onOpen={onOpen} imageSide="left">
+      <ProjectSection number="01" kicker="The idea" image={projectImages.model} onOpen={onOpen} imageSide="left">
         <p>I designed a custom ESP32-S3 development board in Altium Designer to learn more about the full hardware design process.</p>
         <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#cbd7cc] px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-[#668079]"><CircuitBoard size={14} /> Custom ESP32-S3 board</div>
       </ProjectSection>
-      <ProjectSection number="02" kicker="Schematic design" title="Make every connection legible." image={projectImages.schematic} onOpen={onOpen} dark>
+      <ProjectSection number="02" kicker="Schematic design" image={projectImages.schematic} onOpen={onOpen} dark>
         <p>I designed the USB-C interface, USB-to-UART communication, power regulation, ESP32 connections, LCD interface, buttons, LEDs, and debug header in Altium.</p>
         <div className="mt-8 grid max-w-md grid-cols-2 gap-3">
           {['USB-C input', 'USB to UART', '5V → 3V3', 'LCD header'].map((label) => <span key={label} className="flex items-center gap-2 text-xs text-[#a6c9b2]"><Check size={14} className="text-[#66a48f]" />{label}</span>)}
         </div>
       </ProjectSection>
-      <ProjectSection number="03" kicker="PCB layout" title="Turn logic into a physical path." image={projectImages.layout} onOpen={onOpen}>
+      <ProjectSection number="03" kicker="PCB layout" image={projectImages.layout} onOpen={onOpen}>
         <p>I converted the schematic into a physical board layout, considering component placement, power delivery, signal routing, grounding, and the ESP32 antenna keep-out.</p>
       </ProjectSection>
-      <ProjectSection number="04" kicker="3D design" title="Check the object before it exists." image={projectImages.model} onOpen={onOpen} imageSide="left" dark>
+      <ProjectSection number="04" kicker="3D design" image={projectImages.model} onOpen={onOpen} imageSide="left" dark>
         <p>The 3D model helped me check connector placement, board clearances, silkscreen labels, and the overall physical design before manufacturing.</p>
         <div className="mt-8 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.12em] text-[#a6c9b2]"><ScanLine size={15} className="text-[#66a48f]" /> Design review in three dimensions</div>
       </ProjectSection>
-      <ProjectSection number="05" kicker="Hardware bring-up" title="The first test is physical." image={projectImages.hardware} onOpen={onOpen}>
+      <ProjectSection number="05" kicker="Hardware bring-up" image={projectImages.hardware} onOpen={onOpen}>
         <p>The board was manufactured, assembled, powered, and connected to a 1.3 inch LCD module for testing.</p>
       </ProjectSection>
-      <ProjectSection number="06" kicker="It works" title="A signal becomes a picture." image={projectImages.hardware} onOpen={onOpen} dark>
+      <ProjectSection number="06" kicker="It works" image={projectImages.hardware} onOpen={onOpen} dark>
         <p>I programmed the ESP32-S3 and successfully communicated with the LCD, confirming that the custom hardware works.</p>
         <div className="mt-9 inline-flex items-center gap-3 rounded-full bg-[#2b5e57] px-4 py-3 text-xs font-semibold text-[#dce9df]"><Zap size={15} className="text-[#b5d9a1]" /> First light, first image</div>
       </ProjectSection>
