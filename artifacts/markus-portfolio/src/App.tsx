@@ -258,10 +258,6 @@ function Hero() {
           <span className="absolute -right-2 -top-7 font-mono text-[10px] tracking-[0.16em] text-[#668079] sm:-right-5">01 / 06</span>
         </div>
       </div>
-      <div className="absolute bottom-6 left-5 hidden items-center gap-3 text-[#668079] lg:flex">
-        <span className="font-mono text-[10px]">SCROLL TO TRACE THE BUILD</span>
-        <span className="h-10 w-px bg-[#b9c5b9]" />
-      </div>
     </section>
   );
 }
@@ -279,13 +275,35 @@ function About() {
             <p className="text-2xl leading-9 tracking-[-0.03em] text-[#20534e] sm:text-3xl sm:leading-10">
             I&apos;m interested in embedded systems, electronics, and PCB design.
            </p>
-            <p className="mt-7 max-w-xl text-[17px] leading-8 text-[#355c55]">
+            <p className="mt-7 max-w-xl text-[18px] leading-8 text-[#355c55]">
             I enjoy turning ideas into working hardware and learning through hands-on projects.
            </p>
            <div className="mt-10 grid grid-cols-2 gap-y-7 border-t border-[#cbd7cc] pt-7">
             <div><span className="eyebrow text-[#668079]">Tools</span><p className="mt-2 text-sm font-semibold text-[#20534e]">Altium Designer</p></div>
              <div><span className="eyebrow text-[#668079]">Year</span><p className="mt-2 text-sm font-semibold text-[#20534e]">Second-year student</p></div>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HomeProjects() {
+  const reveal = useReveal();
+  return (
+    <section id="projects" className="border-t border-[#d4dbd1] bg-[#f6f3eb]">
+      <div ref={reveal.ref} className={`${reveal.className} mx-auto grid max-w-[1360px] gap-10 px-5 py-24 sm:px-8 sm:py-28 lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-24 lg:px-16 lg:py-36`}>
+        <div>
+          <span className="eyebrow text-[#4b6961]">Projects</span>
+          <h2 className="mt-5 max-w-sm text-5xl font-bold leading-[0.92] tracking-[-0.07em] text-[#173c39] sm:text-6xl">Selected work.</h2>
+        </div>
+        <div className="max-w-2xl">
+          <p className="text-[18px] leading-8 text-[#355c55] sm:text-xl">
+            A custom ESP32-S3 development board designed in Altium Designer, manufactured, and brought up with an LCD.
+          </p>
+          <a href="/projects" className="group mt-8 inline-flex items-center gap-3 rounded-full bg-[#20534e] px-5 py-3.5 text-base font-semibold text-[#f6f3eb] transition-transform hover:-translate-y-1" data-testid="link-home-projects">
+            View project <ArrowUpRight size={17} strokeWidth={1.5} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
         </div>
       </div>
     </section>
@@ -388,7 +406,7 @@ function Contact() {
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-24">
           <div>
             <span className="eyebrow text-[#668079]">Contact</span>
-            <p className="mt-5 max-w-xs text-base leading-7 text-[#4b6961]">I&apos;m open to engineering internship opportunities and conversations.</p>
+            <p className="mt-5 max-w-xs text-lg leading-8 text-[#4b6961]">I&apos;m open to engineering internship opportunities and conversations.</p>
           </div>
           <div>
              <h2 className="max-w-3xl text-5xl font-bold leading-[0.9] tracking-[-0.075em] text-[#173c39] sm:text-7xl">Let&apos;s build<br /><span className="text-[#66a48f]">something.</span></h2>
@@ -426,6 +444,7 @@ function Home() {
       <main>
         <Hero />
         <About />
+        <HomeProjects />
         <Contact />
       </main>
       <Footer />
