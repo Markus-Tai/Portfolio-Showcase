@@ -185,11 +185,11 @@ function Navbar() {
         </a>
         <div className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
-            <a key={link.href} href={link.href} className="text-xs font-semibold text-[#51706a] transition-colors hover:text-[#173c39]" data-testid={`link-nav-${link.label.toLowerCase()}`}>
+            <a key={link.href} href={link.href} className="text-sm font-semibold text-[#355c55] transition-colors hover:text-[#173c39]" data-testid={`link-nav-${link.label.toLowerCase()}`}>
               {link.label}
             </a>
           ))}
-          <a href="mailto:markust0112@gmail.com" className="inline-flex items-center gap-2 rounded-full bg-[#20534e] px-4 py-2 text-xs font-semibold text-[#f6f3eb] transition-transform hover:-translate-y-0.5" data-testid="link-nav-email">
+          <a href="mailto:markust0112@gmail.com" className="inline-flex items-center gap-2 rounded-full bg-[#20534e] px-4 py-2 text-sm font-semibold text-[#f6f3eb] transition-transform hover:-translate-y-0.5" data-testid="link-nav-email">
             Say hello <ArrowUpRight size={14} strokeWidth={1.7} />
           </a>
         </div>
@@ -236,7 +236,7 @@ function Hero() {
             <br />
             <span className="text-[#66a48f]">Markus.</span>
           </h1>
-          <p className="mt-9 max-w-md text-base leading-7 text-[#51706a] sm:text-lg">
+          <p className="mt-9 max-w-md text-lg leading-8 text-[#355c55] sm:text-xl">
             I&apos;m a second-year Electrical Engineering student interested in hardware, embedded systems, and PCB design.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -276,10 +276,10 @@ function About() {
           <h2 className="mt-5 max-w-xs text-4xl font-bold leading-[0.98] tracking-[-0.06em] text-[#173c39] sm:text-5xl">A little about me.</h2>
         </div>
         <div className="max-w-2xl">
-           <p className="text-xl leading-8 tracking-[-0.03em] text-[#20534e] sm:text-2xl sm:leading-9">
+            <p className="text-2xl leading-9 tracking-[-0.03em] text-[#20534e] sm:text-3xl sm:leading-10">
             I&apos;m interested in embedded systems, electronics, and PCB design.
            </p>
-           <p className="mt-7 max-w-xl text-[15px] leading-7 text-[#51706a]">
+            <p className="mt-7 max-w-xl text-[17px] leading-8 text-[#355c55]">
             I enjoy turning ideas into working hardware and learning through hands-on projects.
            </p>
            <div className="mt-10 grid grid-cols-2 gap-y-7 border-t border-[#cbd7cc] pt-7">
@@ -319,7 +319,7 @@ function ProjectSection({
             <span className={`h-px w-12 ${dark ? 'bg-[#66a48f]' : 'bg-[#b9c5b9]'}`} />
             <span className="eyebrow">{kicker}</span>
           </div>
-          <div className={`mt-7 max-w-lg text-[15px] leading-7 ${dark ? 'text-[#c1d6c9]' : 'text-[#51706a]'}`}>{children}</div>
+          <div className={`mt-7 max-w-lg text-[17px] leading-8 ${dark ? 'text-[#c1d6c9]' : 'text-[#355c55]'}`}>{children}</div>
         </div>
         {image && (
           <ImageButton image={image} onOpen={onOpen} className={`aspect-[1.35] ${dark ? 'ring-1 ring-[#7ea795]/30' : ''}`} />
@@ -336,12 +336,13 @@ function Projects({ onOpen }: { onOpen: (image: ProjectImage) => void }) {
       <div className="mx-auto max-w-[1360px] px-5 pb-20 pt-28 sm:px-8 sm:pb-28 sm:pt-36 lg:px-16">
         <div ref={intro.ref} className={`${intro.className} grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24`}>
           <div>
-            <span className="eyebrow text-[#668079]">Projects / 01</span>
-            <p className="mt-5 max-w-xs text-sm leading-6 text-[#668079]">A custom development board designed, assembled, and tested from scratch.</p>
+            <span className="eyebrow text-[#4b6961]">Projects / 01</span>
+            <h1 className="mt-5 max-w-xs text-5xl font-bold leading-[0.92] tracking-[-0.07em] text-[#173c39] sm:text-6xl">Selected<br />Projects.</h1>
+            <p className="mt-6 max-w-xs text-base leading-7 text-[#4b6961]">A custom development board designed, assembled, and tested from scratch.</p>
           </div>
           <div>
             <h2 className="max-w-4xl text-5xl font-bold leading-[0.9] tracking-[-0.075em] text-[#173c39] sm:text-7xl">Custom ESP32-S3<br /><span className="text-[#66a48f]">Development Board</span></h2>
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-[#668079]">
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-[#4b6961]">
               <span className="font-mono uppercase tracking-[0.12em]">Personal project</span>
               <span className="h-1 w-1 rounded-full bg-[#66a48f]" />
               <span className="font-mono uppercase tracking-[0.12em]">Altium Designer</span>
@@ -387,7 +388,7 @@ function Contact() {
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-24">
           <div>
             <span className="eyebrow text-[#668079]">Contact</span>
-            <p className="mt-5 max-w-xs text-sm leading-6 text-[#668079]">I&apos;m open to engineering internship opportunities and conversations.</p>
+            <p className="mt-5 max-w-xs text-base leading-7 text-[#4b6961]">I&apos;m open to engineering internship opportunities and conversations.</p>
           </div>
           <div>
              <h2 className="max-w-3xl text-5xl font-bold leading-[0.9] tracking-[-0.075em] text-[#173c39] sm:text-7xl">Let&apos;s build<br /><span className="text-[#66a48f]">something.</span></h2>
@@ -410,7 +411,7 @@ function Contact() {
 function Footer() {
   return (
     <footer className="border-t border-[#d4dbd1] bg-[#f6f3eb]">
-      <div className="mx-auto flex max-w-[1360px] flex-col gap-4 px-5 py-7 text-xs text-[#668079] sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-16">
+      <div className="mx-auto flex max-w-[1360px] flex-col gap-4 px-5 py-7 text-sm text-[#4b6961] sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-16">
         <span className="font-semibold text-[#20534e]" data-testid="text-footer-name">Markus Tai</span>
         <a href="#top" className="inline-flex items-center gap-2 font-semibold text-[#20534e] hover:text-[#66a48f]" data-testid="link-back-to-top">Back to top <MoveUpRight size={14} strokeWidth={1.5} /></a>
       </div>
