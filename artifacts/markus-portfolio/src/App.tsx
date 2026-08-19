@@ -152,9 +152,9 @@ function Lightbox({ image, onClose }: { image: ProjectImage | null; onClose: () 
 function Navbar() {
   const [open, setOpen] = useState(false);
   const links = [
-    { href: '#about', label: 'About' },
-    { href: '#projects', label: 'Project' },
-    { href: '#contact', label: 'Contact' },
+    { href: '/#about', label: 'About' },
+    { href: '/projects', label: 'Projects' },
+    { href: '/#contact', label: 'Contact' },
   ];
   const handleNav = () => setOpen(false);
   return (
@@ -212,22 +212,22 @@ function Hero({ onOpen }: { onOpen: (image: ProjectImage) => void }) {
         <div ref={reveal.ref} className={reveal.className}>
           <div className="mb-8 flex items-center gap-3 text-[#668079]">
             <span className="h-px w-9 bg-[#66a48f]" />
-            <span className="eyebrow">Electrical engineering / 02</span>
+            <span className="eyebrow">Electrical engineering</span>
           </div>
           <h1 className="max-w-4xl text-[clamp(3.9rem,11vw,9.2rem)] font-extrabold leading-[0.86] tracking-[-0.085em] text-[#173c39]">
-            Hardware,
+            Hey, I&apos;m
             <br />
-            <span className="text-[#66a48f]">documented.</span>
+            <span className="text-[#66a48f]">Markus.</span>
           </h1>
           <p className="mt-9 max-w-md text-base leading-7 text-[#51706a] sm:text-lg">
-            I&apos;m Markus Tai, a second-year Electrical Engineering student who likes to understand a board from its first line of schematic to its first successful boot.
+            I&apos;m a second-year Electrical Engineering student interested in hardware, embedded systems, PCB design, and software.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <a href="#projects" className="group inline-flex items-center gap-3 rounded-full bg-[#20534e] px-5 py-3.5 text-sm font-semibold text-[#f6f3eb] transition-transform hover:-translate-y-1" data-testid="link-hero-project">
-              Read the case study <ArrowDownRight size={17} strokeWidth={1.5} className="transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
+            <a href="/projects" className="group inline-flex items-center gap-3 rounded-full bg-[#20534e] px-5 py-3.5 text-sm font-semibold text-[#f6f3eb] transition-transform hover:-translate-y-1" data-testid="link-hero-project">
+              View my work <ArrowDownRight size={17} strokeWidth={1.5} className="transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
             </a>
             <a href="#about" className="inline-flex items-center gap-2 px-2 py-3.5 text-sm font-semibold text-[#20534e] hover:text-[#66a48f]" data-testid="link-hero-about">
-              A little about me <ChevronRight size={16} strokeWidth={1.5} />
+              About me <ChevronRight size={16} strokeWidth={1.5} />
             </a>
           </div>
         </div>
@@ -256,19 +256,19 @@ function About() {
       <div ref={reveal.ref} className={`${reveal.className} mx-auto grid max-w-[1360px] gap-12 px-5 py-24 sm:px-8 sm:py-28 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24 lg:px-16 lg:py-36`}>
         <div>
           <span className="eyebrow text-[#668079]">About / 00</span>
-          <h2 className="mt-5 max-w-xs text-4xl font-bold leading-[0.98] tracking-[-0.06em] text-[#173c39] sm:text-5xl">Curious at the component level.</h2>
+          <h2 className="mt-5 max-w-xs text-4xl font-bold leading-[0.98] tracking-[-0.06em] text-[#173c39] sm:text-5xl">A little about me.</h2>
         </div>
         <div className="max-w-2xl">
-          <p className="text-xl leading-8 tracking-[-0.03em] text-[#20534e] sm:text-2xl sm:leading-9">
-            I&apos;m building a foundation in embedded systems, PCB design, and the patient work between an idea and a working circuit.
-          </p>
-          <p className="mt-7 max-w-xl text-[15px] leading-7 text-[#51706a]">
-            As a second-year Electrical Engineering student, I enjoy projects that make the invisible legible: tracing a signal, choosing a part, routing a return path, then testing the physical result. This portfolio documents one complete board build rather than a list of disconnected claims.
-          </p>
+           <p className="text-xl leading-8 tracking-[-0.03em] text-[#20534e] sm:text-2xl sm:leading-9">
+            I&apos;m interested in embedded systems, electronics, PCB design, and software.
+           </p>
+           <p className="mt-7 max-w-xl text-[15px] leading-7 text-[#51706a]">
+            I enjoy turning ideas into working hardware and learning through hands-on projects.
+           </p>
           <div className="mt-10 grid grid-cols-2 gap-y-7 border-t border-[#cbd7cc] pt-7 sm:grid-cols-3">
             <div><span className="eyebrow text-[#668079]">Focus</span><p className="mt-2 text-sm font-semibold text-[#20534e]">Embedded hardware</p></div>
             <div><span className="eyebrow text-[#668079]">Tools</span><p className="mt-2 text-sm font-semibold text-[#20534e]">Altium Designer</p></div>
-            <div><span className="eyebrow text-[#668079]">Based in</span><p className="mt-2 text-sm font-semibold text-[#20534e]">Learning by building</p></div>
+             <div><span className="eyebrow text-[#668079]">Year</span><p className="mt-2 text-sm font-semibold text-[#20534e]">Second-year student</p></div>
           </div>
         </div>
       </div>
@@ -324,7 +324,7 @@ function Projects({ onOpen }: { onOpen: (image: ProjectImage) => void }) {
         <div ref={intro.ref} className={`${intro.className} grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24`}>
           <div>
             <span className="eyebrow text-[#668079]">Projects / 01</span>
-            <p className="mt-5 max-w-xs text-sm leading-6 text-[#668079]">One board. Six beats. A record of the decisions that make hardware real.</p>
+            <p className="mt-5 max-w-xs text-sm leading-6 text-[#668079]">A custom development board designed, assembled, and tested from scratch.</p>
           </div>
           <div>
             <h2 className="max-w-4xl text-5xl font-bold leading-[0.9] tracking-[-0.075em] text-[#173c39] sm:text-7xl">Custom ESP32-S3<br /><span className="text-[#66a48f]">Development Board</span></h2>
@@ -338,34 +338,28 @@ function Projects({ onOpen }: { onOpen: (image: ProjectImage) => void }) {
           </div>
         </div>
       </div>
-      <ProjectSection number="01" kicker="The idea" title="Start with the useful question." image={projectImages.schematic} onOpen={onOpen} imageSide="left">
-        <p>The goal was a compact development board around the ESP32-S3-MINI with a more deliberate path from USB-C power and programming to a real display connection.</p>
-        <p className="mt-5">I wanted the board to expose the decisions that are usually hidden inside a module: power selection, serial handling, reset and boot controls, status LEDs, LCD header pins, and a small debug header.</p>
-        <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#cbd7cc] px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-[#668079]"><CircuitBoard size={14} /> A board designed to be understood</div>
+      <ProjectSection number="01" kicker="The idea" title="A board built for learning." image={projectImages.model} onOpen={onOpen} imageSide="left">
+        <p>I designed a custom ESP32-S3 development board in Altium Designer to learn more about the full hardware design process.</p>
+        <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#cbd7cc] px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-[#668079]"><CircuitBoard size={14} /> Custom ESP32-S3 board</div>
       </ProjectSection>
       <ProjectSection number="02" kicker="Schematic design" title="Make every connection legible." image={projectImages.schematic} onOpen={onOpen} dark>
-        <p>The schematic establishes the board&apos;s functional blocks: USB-C input, USB to UART, 5V to 3V3 regulation, the ESP32-S3 module, buttons, LEDs, serial signal handling, LCD header pins, and a six-pin debug header.</p>
-        <p className="mt-5">The power selection jumper makes the 3V3 rail explicit. Reset and BOOT/USR buttons sit beside the module, while the USB-UART path gives the board a straightforward programming and serial workflow.</p>
+        <p>I designed the USB-C interface, USB-to-UART communication, power regulation, ESP32 connections, LCD interface, buttons, LEDs, and debug header in Altium.</p>
         <div className="mt-8 grid max-w-md grid-cols-2 gap-3">
           {['USB-C input', 'USB to UART', '5V → 3V3', 'LCD header'].map((label) => <span key={label} className="flex items-center gap-2 text-xs text-[#a6c9b2]"><Check size={14} className="text-[#66a48f]" />{label}</span>)}
         </div>
       </ProjectSection>
       <ProjectSection number="03" kicker="PCB layout" title="Turn logic into a physical path." image={projectImages.layout} onOpen={onOpen}>
-        <p>With the circuit defined, the work became spatial. Components were placed around the board&apos;s edges and the ESP32-S3 module, then traces were routed across the available layers with the connectors and controls kept easy to reach.</p>
-        <p className="mt-5">The layout view shows the density of that translation: red and blue signal paths, filled areas, footprints, mounting positions, and the antenna keep-out shaping the final board outline.</p>
+        <p>I converted the schematic into a physical board layout, considering component placement, power delivery, signal routing, grounding, and the ESP32 antenna keep-out.</p>
       </ProjectSection>
       <ProjectSection number="04" kicker="3D design" title="Check the object before it exists." image={projectImages.model} onOpen={onOpen} imageSide="left" dark>
-        <p>The 3D view is where a schematic becomes an object. USB-C, buttons, headers, the module, regulator, and silkscreen labels can be checked together before manufacturing.</p>
-        <p className="mt-5">It is a small but important feedback loop: a connector that is electrically correct still has to be physically usable, and a header still has to clear the rest of the board.</p>
+        <p>The 3D model helped me check connector placement, board clearances, silkscreen labels, and the overall physical design before manufacturing.</p>
         <div className="mt-8 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.12em] text-[#a6c9b2]"><ScanLine size={15} className="text-[#66a48f]" /> Design review in three dimensions</div>
       </ProjectSection>
       <ProjectSection number="05" kicker="Hardware bring-up" title="The first test is physical." image={projectImages.hardware} onOpen={onOpen}>
-        <p>Once manufactured, the board was connected to a 1.3 inch LCD module for bring-up. The cable harness, USB-C power, and on-board indicators turn the abstract design into a bench test.</p>
-        <p className="mt-5">This is the moment where the board has to answer for all six functional blocks at once: power, programming, control inputs, serial signals, display pins, and the ESP32-S3 itself.</p>
+        <p>The board was manufactured, assembled, powered, and connected to a 1.3 inch LCD module for testing.</p>
       </ProjectSection>
       <ProjectSection number="06" kicker="It works" title="A signal becomes a picture." image={projectImages.hardware} onOpen={onOpen} dark>
-        <p>The LCD displays an image. The custom board powers the system and the ESP32-S3 is talking to its peripheral through the header pins.</p>
-        <p className="mt-5">The final result is not just a rendered board or a clean schematic. It is the full chain: an idea expressed as a circuit, arranged as a layout, checked as a 3D object, manufactured, wired, and brought up on the bench.</p>
+        <p>I programmed the ESP32-S3 and successfully communicated with the LCD, confirming that the custom hardware works.</p>
         <div className="mt-9 inline-flex items-center gap-3 rounded-full bg-[#2b5e57] px-4 py-3 text-xs font-semibold text-[#dce9df]"><Zap size={15} className="text-[#b5d9a1]" /> First light, first image</div>
       </ProjectSection>
     </section>
@@ -380,10 +374,10 @@ function Contact() {
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-24">
           <div>
             <span className="eyebrow text-[#668079]">Contact / 02</span>
-            <p className="mt-5 max-w-xs text-sm leading-6 text-[#668079]">If you are working on hardware that rewards care, I would like to hear about it.</p>
+            <p className="mt-5 max-w-xs text-sm leading-6 text-[#668079]">I&apos;m open to engineering internship opportunities and conversations.</p>
           </div>
           <div>
-            <h2 className="max-w-3xl text-5xl font-bold leading-[0.9] tracking-[-0.075em] text-[#173c39] sm:text-7xl">Let&apos;s make<br /><span className="text-[#66a48f]">something physical.</span></h2>
+             <h2 className="max-w-3xl text-5xl font-bold leading-[0.9] tracking-[-0.075em] text-[#173c39] sm:text-7xl">Let&apos;s build<br /><span className="text-[#66a48f]">something.</span></h2>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a href="mailto:markust0112@gmail.com" className="group inline-flex items-center justify-between gap-8 rounded-full bg-[#20534e] px-5 py-4 text-sm font-semibold text-[#f6f3eb] transition-transform hover:-translate-y-1 sm:justify-start" data-testid="link-contact-email">
                 <span className="flex items-center gap-3"><Mail size={16} strokeWidth={1.5} /> markust0112@gmail.com</span>
@@ -405,7 +399,7 @@ function Footer() {
     <footer className="border-t border-[#d4dbd1] bg-[#f6f3eb]">
       <div className="mx-auto flex max-w-[1360px] flex-col gap-4 px-5 py-7 text-xs text-[#668079] sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-16">
         <span className="font-semibold text-[#20534e]" data-testid="text-footer-name">Markus Tai</span>
-        <span className="font-mono text-[10px] uppercase tracking-[0.13em]" data-testid="text-footer-note">Built carefully · 2025</span>
+         <span className="font-mono text-[10px] uppercase tracking-[0.13em]" data-testid="text-footer-note">Built carefully · 2026</span>
         <a href="#top" className="inline-flex items-center gap-2 font-semibold text-[#20534e] hover:text-[#66a48f]" data-testid="link-back-to-top">Back to top <MoveUpRight size={14} strokeWidth={1.5} /></a>
       </div>
     </footer>
@@ -420,8 +414,21 @@ function Home() {
       <main>
         <Hero onOpen={setSelectedImage} />
         <About />
-        <Projects onOpen={setSelectedImage} />
         <Contact />
+      </main>
+      <Footer />
+      <Lightbox image={selectedImage} onClose={() => setSelectedImage(null)} />
+    </div>
+  );
+}
+
+function ProjectsPage() {
+  const [selectedImage, setSelectedImage] = useState<ProjectImage | null>(null);
+  return (
+    <div className="portfolio-shell min-h-[100dvh] text-[#173c39]">
+      <Navbar />
+      <main className="pt-24">
+        <Projects onOpen={setSelectedImage} />
       </main>
       <Footer />
       <Lightbox image={selectedImage} onClose={() => setSelectedImage(null)} />
@@ -434,6 +441,7 @@ function Router() {
     <RoutedErrorBoundary>
       <Switch>
         <Route path="/" component={Home} />
+        <Route path="/projects" component={ProjectsPage} />
         <Route component={NotFound} />
       </Switch>
     </RoutedErrorBoundary>
