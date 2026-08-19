@@ -105,6 +105,23 @@ function ImageButton({
   );
 }
 
+function ProjectLinkCard({ image }: { image: ProjectImage }) {
+  return (
+    <a
+      href="/projects"
+      className="image-frame group relative block w-full overflow-hidden rounded-[1.4rem] text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#66a48f] focus-visible:ring-offset-4 focus-visible:ring-offset-[#f6f3eb]"
+      aria-label="View the Custom ESP32-S3 Development Board project"
+      data-testid="link-hero-board"
+    >
+      <img src={image.src} alt={image.alt} className="block h-full w-full object-contain" />
+      <span className="pointer-events-none absolute inset-x-4 bottom-4 flex items-center justify-between rounded-full border border-white/30 bg-[#173c39]/80 px-4 py-2 text-[11px] text-[#f6f3eb] backdrop-blur-md">
+        <span className="font-mono uppercase tracking-[0.12em]">View project</span>
+        <ArrowUpRight size={14} strokeWidth={1.5} />
+      </span>
+    </a>
+  );
+}
+
 function Lightbox({ image, onClose }: { image: ProjectImage | null; onClose: () => void }) {
   useEffect(() => {
     if (!image) return;
@@ -203,7 +220,7 @@ function Navbar() {
   );
 }
 
-function Hero({ onOpen }: { onOpen: (image: ProjectImage) => void }) {
+function Hero() {
   const reveal = useReveal();
   return (
     <section id="top" className="relative mx-auto flex min-h-[780px] max-w-[1360px] flex-col justify-end px-5 pb-16 pt-36 sm:px-8 sm:pb-20 lg:min-h-[880px] lg:px-16 lg:pb-24">
@@ -220,7 +237,7 @@ function Hero({ onOpen }: { onOpen: (image: ProjectImage) => void }) {
             <span className="text-[#66a48f]">Markus.</span>
           </h1>
           <p className="mt-9 max-w-md text-base leading-7 text-[#51706a] sm:text-lg">
-            I&apos;m a second-year Electrical Engineering student interested in hardware, embedded systems, PCB design, and software.
+            I&apos;m a second-year Electrical Engineering student interested in hardware, embedded systems, and PCB design.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a href="/projects" className="group inline-flex items-center gap-3 rounded-full bg-[#20534e] px-5 py-3.5 text-sm font-semibold text-[#f6f3eb] transition-transform hover:-translate-y-1" data-testid="link-hero-project">
@@ -233,7 +250,7 @@ function Hero({ onOpen }: { onOpen: (image: ProjectImage) => void }) {
         </div>
         <div className="relative lg:pb-2">
           <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-[#dce9df]/45 blur-2xl" />
-          <ImageButton image={projectImages.model} onOpen={onOpen} className="aspect-[1.2] sm:aspect-[1.35] lg:aspect-[1.1]" />
+           <ProjectLinkCard image={projectImages.model} />
           <div className="absolute -bottom-6 -left-3 rounded-2xl border border-[#b9c5b9]/60 bg-[#f6f3eb]/85 px-4 py-3 shadow-[0_12px_30px_rgba(31,58,54,0.08)] backdrop-blur-md sm:-left-6">
             <span className="eyebrow text-[#668079]">Selected build</span>
             <p className="mt-1 text-sm font-semibold tracking-[-0.02em] text-[#20534e]">Custom ESP32-S3 board</p>
@@ -255,18 +272,17 @@ function About() {
     <section id="about" className="border-t border-[#d4dbd1] bg-[#edf1e9]">
       <div ref={reveal.ref} className={`${reveal.className} mx-auto grid max-w-[1360px] gap-12 px-5 py-24 sm:px-8 sm:py-28 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24 lg:px-16 lg:py-36`}>
         <div>
-          <span className="eyebrow text-[#668079]">About / 00</span>
+           <span className="eyebrow text-[#668079]">About</span>
           <h2 className="mt-5 max-w-xs text-4xl font-bold leading-[0.98] tracking-[-0.06em] text-[#173c39] sm:text-5xl">A little about me.</h2>
         </div>
         <div className="max-w-2xl">
            <p className="text-xl leading-8 tracking-[-0.03em] text-[#20534e] sm:text-2xl sm:leading-9">
-            I&apos;m interested in embedded systems, electronics, PCB design, and software.
+            I&apos;m interested in embedded systems, electronics, and PCB design.
            </p>
            <p className="mt-7 max-w-xl text-[15px] leading-7 text-[#51706a]">
             I enjoy turning ideas into working hardware and learning through hands-on projects.
            </p>
-          <div className="mt-10 grid grid-cols-2 gap-y-7 border-t border-[#cbd7cc] pt-7 sm:grid-cols-3">
-            <div><span className="eyebrow text-[#668079]">Focus</span><p className="mt-2 text-sm font-semibold text-[#20534e]">Embedded hardware</p></div>
+           <div className="mt-10 grid grid-cols-2 gap-y-7 border-t border-[#cbd7cc] pt-7">
             <div><span className="eyebrow text-[#668079]">Tools</span><p className="mt-2 text-sm font-semibold text-[#20534e]">Altium Designer</p></div>
              <div><span className="eyebrow text-[#668079]">Year</span><p className="mt-2 text-sm font-semibold text-[#20534e]">Second-year student</p></div>
           </div>
@@ -373,7 +389,7 @@ function Contact() {
       <div ref={reveal.ref} className={`${reveal.className} mx-auto max-w-[1360px] px-5 py-28 sm:px-8 sm:py-36 lg:px-16 lg:py-44`}>
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-24">
           <div>
-            <span className="eyebrow text-[#668079]">Contact / 02</span>
+            <span className="eyebrow text-[#668079]">Contact</span>
             <p className="mt-5 max-w-xs text-sm leading-6 text-[#668079]">I&apos;m open to engineering internship opportunities and conversations.</p>
           </div>
           <div>
@@ -399,7 +415,6 @@ function Footer() {
     <footer className="border-t border-[#d4dbd1] bg-[#f6f3eb]">
       <div className="mx-auto flex max-w-[1360px] flex-col gap-4 px-5 py-7 text-xs text-[#668079] sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-16">
         <span className="font-semibold text-[#20534e]" data-testid="text-footer-name">Markus Tai</span>
-         <span className="font-mono text-[10px] uppercase tracking-[0.13em]" data-testid="text-footer-note">Built carefully · 2026</span>
         <a href="#top" className="inline-flex items-center gap-2 font-semibold text-[#20534e] hover:text-[#66a48f]" data-testid="link-back-to-top">Back to top <MoveUpRight size={14} strokeWidth={1.5} /></a>
       </div>
     </footer>
@@ -407,17 +422,15 @@ function Footer() {
 }
 
 function Home() {
-  const [selectedImage, setSelectedImage] = useState<ProjectImage | null>(null);
   return (
     <div className="portfolio-shell min-h-[100dvh] text-[#173c39]">
       <Navbar />
       <main>
-        <Hero onOpen={setSelectedImage} />
+        <Hero />
         <About />
         <Contact />
       </main>
       <Footer />
-      <Lightbox image={selectedImage} onClose={() => setSelectedImage(null)} />
     </div>
   );
 }
