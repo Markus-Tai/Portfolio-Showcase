@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Markus Tai — Engineering Portfolio"
+description = "A polished personal portfolio for Markus Tai, a second-year Electrical Engineering student showcasing a custom ESP32-S3 development board and embedded hardware work to internship recruiters."
+version = "1.0.0"
+id = "artifacts/markus-portfolio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22581
+
+[services.development]
+run = "pnpm --filter @workspace/markus-portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/markus-portfolio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/markus-portfolio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22581"
+BASE_PATH = "/"
