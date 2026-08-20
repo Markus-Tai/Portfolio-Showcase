@@ -260,9 +260,6 @@ function About() {
       className="mx-auto max-w-[1360px] px-5 py-24 sm:px-8 lg:px-16 lg:py-32"
     >
       <div ref={reveal.ref} className={reveal.className}>
-        <p className="text-sm font-mono uppercase tracking-[0.14em] text-[#66a48f]">
-          About me
-        </p>
 
         <h2 className="mt-5 text-4xl font-medium tracking-[-0.04em] text-[#173c39] sm:text-5xl">
           A little about me.
@@ -283,8 +280,7 @@ function About() {
           </p>
 
           <p>
-            Outside of school, I enjoy going to the gym, playing sports, and
-            staying active.
+            Outside of school, I enjoy going to the gym and playing sports.
           </p>
         </div>
       </div>
