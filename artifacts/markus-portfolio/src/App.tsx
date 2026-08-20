@@ -274,12 +274,9 @@ function About() {
           </p>
 
           <p>
-            I&apos;m interested in projects that combine hardware
-            and software and give me the chance to learn new tools and solve problems.
-          </p>
+          I enjoy learning and turning what I learn into something that actually works, and I’m always looking for new challenges that push me outside of what I already know.
+          Outside of engineering, I spend a lot of my time at the gym and playing sports
 
-          <p>
-            Outside of school, I enjoy going to the gym and playing sports.
           </p>
         </div>
       </div>
@@ -464,7 +461,7 @@ function Projects({ onOpen }: { onOpen: (image: ProjectImage) => void }) {
             <div>
               <ProjectHeading
                 number="02"
-                label="Electrical design"
+                label="Schematic design"
                 dark
               />
             </div>
