@@ -111,11 +111,11 @@ function ProjectLinkCard({ image }: { image: ProjectImage }) {
       aria-label="View the Custom ESP32-S3 Development Board project"
       data-testid="link-hero-board"
     >
-      <img src={image.src} alt={image.alt} className="block h-full w-full object-contain" />
-      <span className="pointer-events-none absolute inset-x-4 bottom-4 flex items-center justify-between rounded-full border border-white/30 bg-[#173c39]/80 px-4 py-2 text-[11px] text-[#f6f3eb] backdrop-blur-md">
-        <span className="font-mono uppercase tracking-[0.12em]">View project</span>
-        <ArrowUpRight size={14} strokeWidth={1.5} />
-      </span>
+      <img
+        src={image.src}
+        alt={image.alt}
+        className="block h-full w-full object-contain"
+      />
     </a>
   );
 }
