@@ -235,10 +235,7 @@ function Hero() {
             <span className="text-[#66a48f]">Markus.</span>
           </h1>
           <p className="mt-9 max-w-md text-lg leading-8 text-[#355c55] sm:text-xl">
-            I&apos;m a second-year Electrical Engineering student at UBC.
-          </p>
-          <p className="mt-3 max-w-md text-lg leading-8 text-[#355c55] sm:text-xl">
-            I&apos;m interested in hardware, embedded systems, and PCB design.
+            I&apos;m a second-year Electrical Engineering student at UBC interested in hardware, embedded systems, and PCB design.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a href="/projects" className="group inline-flex items-center gap-3 rounded-full bg-[#20534e] px-5 py-3.5 text-sm font-semibold text-[#f6f3eb] transition-transform hover:-translate-y-1" data-testid="link-hero-project">
@@ -270,8 +267,7 @@ function About() {
             <p className="mt-7 max-w-xl text-[18px] leading-8 text-[#355c55]">
             I enjoy turning ideas into working hardware and learning through hands-on projects.
            </p>
-            <div className="mt-10 grid grid-cols-2 gap-y-7 border-t border-[#cbd7cc] pt-7 sm:grid-cols-3">
-             <div><span className="eyebrow text-[#668079]">Tools</span><p className="mt-2 text-sm font-semibold text-[#20534e]">Altium Designer</p></div>
+            <div className="mt-10 grid grid-cols-2 gap-y-7 border-t border-[#cbd7cc] pt-7">
              <div><span className="eyebrow text-[#668079]">Year</span><p className="mt-2 text-sm font-semibold text-[#20534e]">Second-year student</p></div>
              <div><span className="eyebrow text-[#668079]">Based in</span><p className="mt-2 text-sm font-semibold text-[#20534e]">Vancouver, BC</p></div>
           </div>
