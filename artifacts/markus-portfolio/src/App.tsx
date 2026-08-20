@@ -11,9 +11,7 @@ import {
   Maximize2,
   Menu,
   MoveUpRight,
-  ScanLine,
   X,
-  Zap,
 } from 'lucide-react';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
@@ -169,8 +167,8 @@ function Lightbox({ image, onClose }: { image: ProjectImage | null; onClose: () 
 function Navbar() {
   const [open, setOpen] = useState(false);
   const links = [
-    { href: '/#about', label: 'About' },
     { href: '/projects', label: 'Projects' },
+    { href: '/#about', label: 'About' },
     { href: '/#contact', label: 'Contact' },
   ];
   const handleNav = () => setOpen(false);
@@ -223,9 +221,9 @@ function Navbar() {
 function Hero() {
   const reveal = useReveal();
   return (
-    <section id="top" className="relative mx-auto flex min-h-[780px] max-w-[1360px] flex-col justify-end px-5 pb-16 pt-36 sm:px-8 sm:pb-20 lg:min-h-[880px] lg:px-16 lg:pb-24">
+    <section id="top" className="relative mx-auto flex min-h-[680px] max-w-[1360px] flex-col justify-end px-5 pb-16 pt-36 sm:px-8 sm:pb-20 lg:min-h-[760px] lg:px-16 lg:pb-24">
       <div className="hero-grid pointer-events-none absolute inset-0 -z-0 opacity-70" />
-      <div className="relative z-10 flex flex-col gap-14">
+      <div className="relative z-10">
         <div ref={reveal.ref} className={reveal.className}>
           <div className="mb-8 flex items-center gap-3 text-[#668079]">
             <span className="h-px w-9 bg-[#66a48f]" />
@@ -248,15 +246,6 @@ function Hero() {
             </a>
           </div>
         </div>
-        <div className="relative w-full max-w-[920px] self-end lg:mr-8 lg:pb-2">
-          <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-[#dce9df]/45 blur-2xl" />
-           <ProjectLinkCard image={projectImages.model} />
-          <div className="absolute -bottom-6 -left-3 rounded-2xl border border-[#b9c5b9]/60 bg-[#f6f3eb]/85 px-4 py-3 shadow-[0_12px_30px_rgba(31,58,54,0.08)] backdrop-blur-md sm:-left-6">
-            <span className="eyebrow text-[#668079]">Selected build</span>
-            <p className="mt-1 text-sm font-semibold tracking-[-0.02em] text-[#20534e]">Custom ESP32-S3 board</p>
-          </div>
-          <span className="absolute -right-2 -top-7 font-mono text-[10px] tracking-[0.16em] text-[#668079] sm:-right-5">01 / 06</span>
-        </div>
       </div>
     </section>
   );
@@ -273,14 +262,15 @@ function About() {
         </div>
         <div className="max-w-2xl">
             <p className="text-2xl leading-9 tracking-[-0.03em] text-[#20534e] sm:text-3xl sm:leading-10">
-            I&apos;m interested in embedded systems, electronics, and PCB design.
+            I study Electrical Engineering at UBC and I&apos;m interested in embedded systems, electronics, and PCB design.
            </p>
             <p className="mt-7 max-w-xl text-[18px] leading-8 text-[#355c55]">
-            I enjoy turning ideas into working hardware and learning through hands-on projects.
+            I enjoy turning ideas into working hardware and learning through hands-on projects. I&apos;m based in Vancouver, BC.
            </p>
-           <div className="mt-10 grid grid-cols-2 gap-y-7 border-t border-[#cbd7cc] pt-7">
-            <div><span className="eyebrow text-[#668079]">Tools</span><p className="mt-2 text-sm font-semibold text-[#20534e]">Altium Designer</p></div>
-             <div><span className="eyebrow text-[#668079]">Year</span><p className="mt-2 text-sm font-semibold text-[#20534e]">Second-year student</p></div>
+            <div className="mt-10 grid grid-cols-2 gap-y-7 border-t border-[#cbd7cc] pt-7 sm:grid-cols-3">
+             <div><span className="eyebrow text-[#668079]">School</span><p className="mt-2 text-sm font-semibold text-[#20534e]">UBC</p></div>
+             <div><span className="eyebrow text-[#668079]">Tools</span><p className="mt-2 text-sm font-semibold text-[#20534e]">Altium Designer</p></div>
+             <div><span className="eyebrow text-[#668079]">Based in</span><p className="mt-2 text-sm font-semibold text-[#20534e]">Vancouver, BC</p></div>
           </div>
         </div>
       </div>
@@ -291,15 +281,25 @@ function About() {
 function HomeProjects() {
   const reveal = useReveal();
   return (
-    <section id="projects" className="border-t border-[#d4dbd1] bg-[#f6f3eb]">
-      <div ref={reveal.ref} className={`${reveal.className} mx-auto grid max-w-[1360px] gap-10 px-5 py-24 sm:px-8 sm:py-28 lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-24 lg:px-16 lg:py-36`}>
+    <section id="projects" className="border-t border-[#c5d5c8] bg-gradient-to-br from-[#edf1e9] via-[#e5ece3] to-[#dce9df]">
+      <div ref={reveal.ref} className={`${reveal.className} mx-auto grid max-w-[1360px] gap-8 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-20 lg:px-16 lg:py-24`}>
         <div>
           <span className="eyebrow text-[#4b6961]">Projects</span>
           <h2 className="mt-5 max-w-sm text-5xl font-bold leading-[0.92] tracking-[-0.07em] text-[#173c39] sm:text-6xl">Selected work.</h2>
+          <div className="mt-10 max-w-xl">
+            <div className="relative">
+              <div className="absolute -inset-5 -z-10 rounded-[2rem] bg-[#dce9df]/45 blur-2xl" />
+              <ProjectLinkCard image={projectImages.model} />
+              <div className="absolute -bottom-5 -left-3 rounded-2xl border border-[#b9c5b9]/60 bg-[#f6f3eb]/90 px-4 py-3 shadow-[0_12px_30px_rgba(31,58,54,0.08)] backdrop-blur-md sm:-left-5">
+                <span className="eyebrow text-[#668079]">Selected build</span>
+                <p className="mt-1 text-sm font-semibold tracking-[-0.02em] text-[#20534e]">Custom ESP32-S3 board</p>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="max-w-2xl">
           <p className="text-[18px] leading-8 text-[#355c55] sm:text-xl">
-            A custom ESP32-S3 development board designed in Altium Designer, manufactured, and brought up with an LCD.
+            A custom ESP32-S3 development board designed to power and communicate with an LCD module, then manufactured and tested.
           </p>
           <a href="/projects" className="group mt-8 inline-flex items-center gap-3 rounded-full bg-[#20534e] px-5 py-3.5 text-base font-semibold text-[#f6f3eb] transition-transform hover:-translate-y-1" data-testid="link-home-projects">
             View project <ArrowUpRight size={17} strokeWidth={1.5} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -371,7 +371,7 @@ function Projects({ onOpen }: { onOpen: (image: ProjectImage) => void }) {
         </div>
       </div>
       <ProjectSection number="01" kicker="The idea" image={projectImages.model} onOpen={onOpen} imageSide="left">
-        <p>I designed a custom ESP32-S3 development board in Altium Designer to learn more about the full hardware design process.</p>
+        <p>I designed a custom ESP32-S3 development board in Altium Designer to power and communicate with an LCD module while learning the full hardware design process.</p>
         <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#cbd7cc] px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-[#668079]"><CircuitBoard size={14} /> Custom ESP32-S3 board</div>
       </ProjectSection>
       <ProjectSection number="02" kicker="Schematic design" image={projectImages.schematic} onOpen={onOpen} dark>
@@ -385,14 +385,9 @@ function Projects({ onOpen }: { onOpen: (image: ProjectImage) => void }) {
       </ProjectSection>
       <ProjectSection number="04" kicker="3D design" image={projectImages.model} onOpen={onOpen} imageSide="left" dark>
         <p>The 3D model helped me check connector placement, board clearances, silkscreen labels, and the overall physical design before manufacturing.</p>
-        <div className="mt-8 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.12em] text-[#a6c9b2]"><ScanLine size={15} className="text-[#66a48f]" /> Design review in three dimensions</div>
       </ProjectSection>
       <ProjectSection number="05" kicker="Hardware bring-up" image={projectImages.hardware} onOpen={onOpen}>
         <p>The board was manufactured, assembled, powered, and connected to a 1.3 inch LCD module for testing.</p>
-      </ProjectSection>
-      <ProjectSection number="06" kicker="It works" image={projectImages.hardware} onOpen={onOpen} dark>
-        <p>I programmed the ESP32-S3 and successfully communicated with the LCD, confirming that the custom hardware works.</p>
-        <div className="mt-9 inline-flex items-center gap-3 rounded-full bg-[#2b5e57] px-4 py-3 text-xs font-semibold text-[#dce9df]"><Zap size={15} className="text-[#b5d9a1]" /> First light, first image</div>
       </ProjectSection>
     </section>
   );
@@ -443,8 +438,8 @@ function Home() {
       <Navbar />
       <main>
         <Hero />
-        <About />
         <HomeProjects />
+        <About />
         <Contact />
       </main>
       <Footer />
