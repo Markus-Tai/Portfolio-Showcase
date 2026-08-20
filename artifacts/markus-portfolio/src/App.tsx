@@ -264,8 +264,8 @@ function About() {
           About me
         </p>
 
-        <h2 className="mt-5 max-w-2xl text-3xl font-medium leading-tight tracking-[-0.03em] text-[#173c39] sm:text-4xl">
-          I like building things that bridge hardware and software.
+        <h2 className="mt-5 text-4xl font-medium tracking-[-0.04em] text-[#173c39] sm:text-5xl">
+          A little about me.
         </h2>
 
         <div className="mt-8 max-w-2xl space-y-5 text-[17px] leading-8 text-[#355c55] sm:text-[18px]">
@@ -277,6 +277,12 @@ function About() {
           </p>
 
           <p>
+            I&apos;m especially interested in projects that combine hardware
+            and software and give me the chance to learn new tools and solve
+            technical problems.
+          </p>
+
+          <p>
             Outside of school, I enjoy going to the gym, playing sports, and
             staying active.
           </p>
@@ -285,6 +291,7 @@ function About() {
     </section>
   );
 }
+
 function HomeProjects() {
   const reveal = useReveal();
   return (
