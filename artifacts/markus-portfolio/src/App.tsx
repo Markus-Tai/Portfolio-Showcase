@@ -210,7 +210,7 @@ function Navbar() {
             </a>
           ))}
           <a href="mailto:markust0112@gmail.com" onClick={handleNav} className="mt-1 flex items-center justify-between rounded-2xl bg-[#20534e] px-4 py-3 text-sm font-semibold text-[#f6f3eb]" data-testid="link-mobile-email">
-            Email Markus <ArrowUpRight size={16} strokeWidth={1.5} />
+            Say hello <ArrowUpRight size={16} strokeWidth={1.5} />
           </a>
         </div>
       )}
