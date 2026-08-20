@@ -274,9 +274,8 @@ function About() {
           </p>
 
           <p>
-            I&apos;m especially interested in projects that combine hardware
-            and software and give me the chance to learn new tools and solve
-            technical problems.
+            I&apos;m interested in projects that combine hardware
+            and software and give me the chance to learn new tools and solve problems.
           </p>
 
           <p>
