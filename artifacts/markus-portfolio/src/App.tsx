@@ -219,6 +219,7 @@ function Navbar() {
 }
 
 function Hero() {
+  const reveal = useReveal();
   return (
     <section id="top" className="relative mx-auto flex min-h-[100svh] max-w-[1360px] flex-col justify-center px-5 pb-16 pt-28 sm:px-8 sm:pb-20 lg:min-h-[760px] lg:justify-end lg:px-16 lg:pb-24">
       <div className="hero-grid pointer-events-none absolute inset-0 -z-0 opacity-70" />
