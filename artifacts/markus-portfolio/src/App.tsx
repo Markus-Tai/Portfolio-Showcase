@@ -273,7 +273,7 @@ function About() {
   enjoy learning through hands-on projects and turning ideas into
   working hardware.
 </p>
-
+<div className="my-5 h-px w-16 bg-[#9fb5ad]" />
 <p>
   Recently, I&apos;ve been exploring these areas through PCB design, while taking on new challenges that push me
   beyond what I already know. Outside of engineering, I spend a lot
