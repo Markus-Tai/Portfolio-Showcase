@@ -254,26 +254,29 @@ function Hero() {
 function About() {
   const reveal = useReveal();
   return (
-    <section id="about" className="border-t border-[#d4dbd1] bg-[#edf1e9]">
-      <div ref={reveal.ref} className={`${reveal.className} mx-auto grid max-w-[1360px] gap-12 px-5 py-24 sm:px-8 sm:py-28 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24 lg:px-16 lg:py-36`}>
-        <div>
-           <span className="eyebrow text-[#668079]">About</span>
-          <h2 className="mt-5 max-w-xs text-4xl font-bold leading-[0.98] tracking-[-0.06em] text-[#173c39] sm:text-5xl">A little about me.</h2>
-        </div>
-        <div className="max-w-2xl">
-            <p className="text-2xl leading-9 tracking-[-0.03em] text-[#20534e] sm:text-3xl sm:leading-10">
-            I&apos;m interested in embedded systems, electronics, and PCB design.
-           </p>
-            <p className="mt-7 max-w-xl text-[18px] leading-8 text-[#355c55]">
-            I enjoy turning ideas into working hardware and learning through hands-on projects.
-           </p>
-            <div className="mt-10 grid grid-cols-2 gap-y-7 border-t border-[#cbd7cc] pt-7">
-             <div><span className="eyebrow text-[#668079]">Year</span><p className="mt-2 text-sm font-semibold text-[#20534e]">Second-year student</p></div>
-             <div><span className="eyebrow text-[#668079]">Based in</span><p className="mt-2 text-sm font-semibold text-[#20534e]">Vancouver, BC</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section id="about">
+  <p className="text-sm font-mono uppercase tracking-[0.14em] text-[#66a48f]">
+    About me
+  </p>
+
+  <h2 className="mt-4 max-w-3xl text-3xl font-medium leading-tight tracking-[-0.03em] text-[#173c39] sm:text-4xl">
+    I’m a second-year Electrical Engineering student at UBC with a strong
+    interest in embedded systems, electronics, and PCB design.
+  </h2>
+
+  <div className="mt-8 max-w-2xl space-y-5 text-[18px] leading-8 text-[#355c55]">
+
+    <p>
+      I’m interested in projects that combine hardware and software,
+      and I’m always looking for opportunities to learn new tools, solve
+      technical problems, and build things hands-on.
+    </p>
+
+    <p>
+      Outside of school, I enjoy going to the gym and playing sports.
+    </p>
+  </div>
+</section>
   );
 }
 
