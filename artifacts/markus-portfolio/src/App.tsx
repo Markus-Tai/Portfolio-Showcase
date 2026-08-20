@@ -175,7 +175,7 @@ function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-40 px-4 pt-4 sm:px-6 lg:px-8">
       <nav className="mx-auto flex max-w-[1360px] items-center justify-between rounded-full border border-[#b9c5b9]/60 bg-[#f6f3eb]/80 px-4 py-3 shadow-[0_8px_28px_rgba(31,58,54,0.06)] backdrop-blur-xl sm:px-5" aria-label="Primary navigation">
-        <a href="#top" onClick={handleNav} className="flex items-center gap-2.5" data-testid="link-home">
+        <a href="/" onClick={handleNav} className="flex items-center gap-2.5" data-testid="link-home">
           <span className="grid h-7 w-7 place-items-center rounded-full bg-[#20534e] text-[#f6f3eb]">
             <CircuitBoard size={14} strokeWidth={1.5} />
           </span>
