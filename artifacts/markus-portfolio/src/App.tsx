@@ -319,85 +319,339 @@ function HomeProjects() {
   );
 }
 
-function ProjectSection({
+function ProjectHeading({
   number,
-  kicker,
-  children,
-  image,
-  imageSide = 'right',
-  onOpen,
+  label,
   dark = false,
 }: {
   number: string;
-  kicker: string;
-  children: ReactNode;
-  image?: ProjectImage;
-  imageSide?: 'left' | 'right';
-  onOpen: (image: ProjectImage) => void;
+  label: string;
   dark?: boolean;
 }) {
-  const reveal = useReveal();
   return (
-    <article className={`${dark ? 'bg-[#173c39] text-[#f6f3eb]' : 'bg-[#f6f3eb] text-[#173c39]'} border-t ${dark ? 'border-[#38665f]' : 'border-[#d4dbd1]'}`}>
-      <div ref={reveal.ref} className={`${reveal.className} mx-auto grid max-w-[1360px] items-center gap-12 px-5 py-24 sm:px-8 sm:py-32 lg:grid-cols-2 lg:gap-24 lg:px-16 lg:py-40 ${imageSide === 'left' ? 'lg:[&>*:first-child]:order-2' : ''}`}>
-        <div className="max-w-xl">
-          <div className={`mb-8 flex items-center gap-4 ${dark ? 'text-[#a6c9b2]' : 'text-[#668079]'}`}>
-            <span className="font-mono text-xs">{number}</span>
-            <span className={`h-px w-12 ${dark ? 'bg-[#66a48f]' : 'bg-[#b9c5b9]'}`} />
-            <span className="eyebrow">{kicker}</span>
-          </div>
-          <div className={`mt-7 max-w-lg text-[17px] leading-8 ${dark ? 'text-[#c1d6c9]' : 'text-[#355c55]'}`}>{children}</div>
-        </div>
-        {image && (
-          <ImageButton image={image} onOpen={onOpen} className={`aspect-[1.35] ${dark ? 'ring-1 ring-[#7ea795]/30' : ''}`} />
-        )}
-      </div>
-    </article>
+    <div
+      className={`flex items-center gap-4 ${
+        dark ? 'text-[#a6c9b2]' : 'text-[#668079]'
+      }`}
+    >
+      <span className="font-mono text-xs">{number}</span>
+
+      <span
+        className={`h-px w-12 ${
+          dark ? 'bg-[#66a48f]' : 'bg-[#b9c5b9]'
+        }`}
+      />
+
+      <span className="eyebrow">{label}</span>
+    </div>
   );
 }
 
 function Projects({ onOpen }: { onOpen: (image: ProjectImage) => void }) {
-  const intro = useReveal();
+  const hero = useReveal();
+  const overview = useReveal();
+  const electrical = useReveal();
+  const layout = useReveal();
+  const bringup = useReveal();
+  const takeaway = useReveal();
+
   return (
     <section id="projects">
-      <div className="mx-auto max-w-[1360px] px-5 pb-20 pt-28 sm:px-8 sm:pb-28 sm:pt-36 lg:px-16">
-        <div ref={intro.ref} className={`${intro.className} grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24`}>
+
+      {/* ───────────── HERO ───────────── */}
+
+      <div className="mx-auto max-w-[1360px] px-5 pb-24 pt-28 sm:px-8 sm:pt-36 lg:px-16">
+        <div
+          ref={hero.ref}
+          className={`${hero.className} grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24`}
+        >
           <div>
-            <span className="eyebrow text-[#4b6961]">Projects / 01</span>
-            <h1 className="mt-5 max-w-xs text-5xl font-bold leading-[0.92] tracking-[-0.07em] text-[#173c39] sm:text-6xl">Selected<br />Projects.</h1>
-            <p className="mt-6 max-w-xs text-base leading-7 text-[#4b6961]">A custom development board designed, assembled, and tested from scratch.</p>
+            <span className="eyebrow text-[#4b6961]">
+              Project / 01
+            </span>
+
+            <p className="mt-6 max-w-xs text-lg leading-8 text-[#4b6961]">
+              From schematic capture to working hardware.
+            </p>
           </div>
+
           <div>
-            <h2 className="max-w-4xl text-5xl font-bold leading-[0.9] tracking-[-0.075em] text-[#173c39] sm:text-7xl">Custom ESP32-S3<br /><span className="text-[#66a48f]">Development Board</span></h2>
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-[#4b6961]">
-              <span className="font-mono uppercase tracking-[0.12em]">Personal project</span>
-              <span className="h-1 w-1 rounded-full bg-[#66a48f]" />
-              <span className="font-mono uppercase tracking-[0.12em]">Altium Designer</span>
-              <span className="h-1 w-1 rounded-full bg-[#66a48f]" />
-              <span className="font-mono uppercase tracking-[0.12em]">ESP32-S3-MINI</span>
+            <h1 className="max-w-4xl text-5xl font-bold leading-[0.9] tracking-[-0.075em] text-[#173c39] sm:text-7xl">
+              Custom ESP32-S3
+              <br />
+              <span className="text-[#66a48f]">
+                Development Board
+              </span>
+            </h1>
+
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-[#355c55] sm:text-xl">
+              A custom embedded development board taken from schematic
+              capture through PCB layout, fabrication, and hardware
+              bring-up.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-xs text-[#4b6961]">
+              {[
+                'Personal project',
+                'Altium Designer',
+                'ESP32-S3-MINI',
+                'Built & tested',
+              ].map((item) => (
+                <span
+                  key={item}
+                  className="font-mono uppercase tracking-[0.12em]"
+                >
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
         </div>
-      </div>
-      <ProjectSection number="01" kicker="The idea" image={projectImages.model} onOpen={onOpen} imageSide="left">
-        <p>I designed a custom ESP32-S3 development board in Altium Designer to power and communicate with an LCD module while learning the full hardware design process.</p>
-        <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#cbd7cc] px-3 py-2 font-mono text-[10px] uppercase tracking-[0.12em] text-[#668079]"><CircuitBoard size={14} /> Custom ESP32-S3 board</div>
-      </ProjectSection>
-      <ProjectSection number="02" kicker="Schematic design" image={projectImages.schematic} onOpen={onOpen} dark>
-        <p>I designed the USB-C interface, USB-to-UART communication, power regulation, ESP32 connections, LCD interface, buttons, LEDs, and debug header in Altium.</p>
-        <div className="mt-8 grid max-w-md grid-cols-2 gap-3">
-          {['USB-C input', 'USB to UART', '5V → 3V3', 'LCD header'].map((label) => <span key={label} className="flex items-center gap-2 text-xs text-[#a6c9b2]"><Check size={14} className="text-[#66a48f]" />{label}</span>)}
+
+        <div className="mt-16">
+          <ImageButton
+            image={projectImages.hardware}
+            onOpen={onOpen}
+            className="aspect-[16/8]"
+          />
         </div>
-      </ProjectSection>
-      <ProjectSection number="03" kicker="PCB layout" image={projectImages.layout} onOpen={onOpen}>
-        <p>I converted the schematic into a physical board layout, considering component placement, power delivery, signal routing, grounding, and the ESP32 antenna keep-out.</p>
-      </ProjectSection>
-      <ProjectSection number="04" kicker="3D design" image={projectImages.model} onOpen={onOpen} imageSide="left" dark>
-        <p>The 3D model helped me check connector placement, board clearances, silkscreen labels, and the overall physical design before manufacturing.</p>
-      </ProjectSection>
-      <ProjectSection number="05" kicker="Hardware bring-up" image={projectImages.hardware} onOpen={onOpen}>
-        <p>The board was manufactured, assembled, powered, and connected to a 1.3 inch LCD module for testing.</p>
-      </ProjectSection>
+      </div>
+
+
+      {/* ───────────── 01 — OVERVIEW ───────────── */}
+
+      <article className="border-t border-[#d4dbd1] bg-[#f6f3eb]">
+        <div
+          ref={overview.ref}
+          className={`${overview.className} mx-auto grid max-w-[1360px] items-center gap-12 px-5 py-24 sm:px-8 sm:py-32 lg:grid-cols-2 lg:gap-24 lg:px-16`}
+        >
+          <ImageButton
+            image={projectImages.model}
+            onOpen={onOpen}
+            className="aspect-[1.3]"
+          />
+
+          <div className="max-w-xl">
+            <ProjectHeading number="01" label="Why I built it" />
+
+            <h2 className="mt-8 text-4xl font-semibold tracking-[-0.045em] text-[#173c39]">
+              Learning beyond the dev board.
+            </h2>
+
+            <div className="mt-6 space-y-5 text-[17px] leading-8 text-[#355c55]">
+              <p>
+                I wanted to understand what goes into building an
+                embedded system beyond working with an off-the-shelf
+                development board.
+              </p>
+
+              <p>
+                The goal was to take an ESP32-S3 design from an initial
+                schematic to a manufactured PCB and use it with a real
+                peripheral.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+
+      {/* ───────────── 02 — ELECTRICAL ───────────── */}
+
+      <article className="border-t border-[#38665f] bg-[#173c39] text-[#f6f3eb]">
+        <div
+          ref={electrical.ref}
+          className={`${electrical.className} mx-auto max-w-[1360px] px-5 py-24 sm:px-8 sm:py-32 lg:px-16`}
+        >
+          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
+            <div>
+              <ProjectHeading
+                number="02"
+                label="Electrical design"
+                dark
+              />
+            </div>
+
+            <div>
+              <h2 className="max-w-2xl text-4xl font-semibold tracking-[-0.045em] sm:text-5xl">
+                Building the system around the ESP32-S3.
+              </h2>
+
+              <p className="mt-7 max-w-2xl text-[17px] leading-8 text-[#c1d6c9]">
+                The schematic brings together the circuitry needed
+                around the ESP32-S3, including USB-C power,
+                USB-to-UART communication, 5V-to-3.3V regulation,
+                boot and reset controls, status LEDs, an LCD
+                interface, and debug access.
+              </p>
+
+              <div className="mt-8 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-3">
+                {[
+                  'USB-C input',
+                  'USB to UART',
+                  '5V → 3V3',
+                  'Boot / Reset',
+                  'LCD interface',
+                  'Debug header',
+                ].map((label) => (
+                  <span
+                    key={label}
+                    className="flex items-center gap-2 text-xs text-[#a6c9b2]"
+                  >
+                    <Check
+                      size={14}
+                      className="text-[#66a48f]"
+                    />
+                    {label}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-16">
+            <ImageButton
+              image={projectImages.schematic}
+              onOpen={onOpen}
+              className="aspect-[16/8] ring-1 ring-[#7ea795]/30"
+            />
+          </div>
+        </div>
+      </article>
+
+
+      {/* ───────────── 03 — PCB LAYOUT ───────────── */}
+
+      <article className="border-t border-[#d4dbd1] bg-[#f6f3eb]">
+        <div
+          ref={layout.ref}
+          className={`${layout.className} mx-auto max-w-[1360px] px-5 py-24 sm:px-8 sm:py-32 lg:px-16`}
+        >
+          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
+            <ProjectHeading number="03" label="PCB layout" />
+
+            <div>
+              <h2 className="max-w-2xl text-4xl font-semibold tracking-[-0.045em] text-[#173c39] sm:text-5xl">
+                Turning the schematic into hardware.
+              </h2>
+
+              <p className="mt-7 max-w-2xl text-[17px] leading-8 text-[#355c55]">
+                Component placement and routing had to account for
+                power delivery, grounding, signal paths, connector
+                accessibility, and the ESP32 antenna keep-out area.
+                The 3D model provided another check of clearances,
+                component orientation, connectors, and silkscreen
+                before fabrication.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-16 grid gap-6 lg:grid-cols-2">
+            <ImageButton
+              image={projectImages.layout}
+              onOpen={onOpen}
+              className="aspect-[1.3]"
+            />
+
+            <ImageButton
+              image={projectImages.model}
+              onOpen={onOpen}
+              className="aspect-[1.3]"
+            />
+          </div>
+        </div>
+      </article>
+
+
+      {/* ───────────── 04 — BRING-UP ───────────── */}
+
+      <article className="border-t border-[#38665f] bg-[#173c39] text-[#f6f3eb]">
+        <div
+          ref={bringup.ref}
+          className={`${bringup.className} mx-auto grid max-w-[1360px] items-center gap-12 px-5 py-24 sm:px-8 sm:py-32 lg:grid-cols-[1.1fr_0.9fr] lg:gap-24 lg:px-16`}
+        >
+          <ImageButton
+            image={projectImages.hardware}
+            onOpen={onOpen}
+            className="aspect-[1.3] ring-1 ring-[#7ea795]/30"
+          />
+
+          <div>
+            <ProjectHeading
+              number="04"
+              label="Bring-up"
+              dark
+            />
+
+            <h2 className="mt-8 text-4xl font-semibold tracking-[-0.045em] sm:text-5xl">
+              From CAD to a working board.
+            </h2>
+
+            <p className="mt-7 text-[17px] leading-8 text-[#c1d6c9]">
+              After fabrication and assembly, the board was powered
+              and connected to a 1.3-inch LCD for testing. Getting the
+              display running provided an end-to-end check of the
+              design, from the schematic and PCB connections to the
+              hardware interface and firmware running on the ESP32-S3.
+            </p>
+          </div>
+        </div>
+      </article>
+
+
+      {/* ───────────── 05 — TAKEAWAYS ───────────── */}
+
+      <article className="border-t border-[#d4dbd1] bg-[#f6f3eb]">
+        <div
+          ref={takeaway.ref}
+          className={`${takeaway.className} mx-auto max-w-[1360px] px-5 py-24 sm:px-8 sm:py-32 lg:px-16`}
+        >
+          <ProjectHeading number="05" label="Takeaways" />
+
+          <div className="mt-10 grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-24">
+            <h2 className="max-w-md text-4xl font-semibold tracking-[-0.045em] text-[#173c39] sm:text-5xl">
+              The full board lifecycle.
+            </h2>
+
+            <div className="max-w-2xl space-y-5 text-[17px] leading-8 text-[#355c55]">
+              <p>
+                This project gave me experience with the complete PCB
+                development cycle rather than one isolated part of it.
+              </p>
+
+              <p>
+                Working through schematic design, layout, fabrication,
+                assembly, and bring-up showed me how decisions made
+                early in the design affect everything that comes
+                afterward. Small details in CAD become much more
+                important once you're debugging physical hardware.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-16 grid gap-4 sm:grid-cols-3">
+            {[
+              ['01', 'Schematic'],
+              ['02', 'PCB layout'],
+              ['03', 'Bring-up'],
+            ].map(([number, label]) => (
+              <div
+                key={label}
+                className="rounded-3xl border border-[#cbd7cc] p-6"
+              >
+                <span className="font-mono text-xs text-[#66a48f]">
+                  {number}
+                </span>
+
+                <p className="mt-10 text-lg font-semibold text-[#20534e]">
+                  {label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </article>
+
     </section>
   );
 }
