@@ -267,16 +267,18 @@ function About() {
 
         <div className="mt-8 max-w-2xl space-y-5 text-[17px] leading-8 text-[#355c55] sm:text-[18px]">
           <p>
-            I&apos;m a second-year Electrical Engineering student at UBC
-            interested in embedded systems, electronics, and PCB design. I
-            enjoy learning through hands-on projects and turning ideas into
-            working hardware.
-          </p>
+            <p>
+  I&apos;m a second-year Electrical Engineering student at UBC
+  interested in embedded systems, electronics, and PCB design. I
+  enjoy learning through hands-on projects and turning ideas into
+  working hardware.
+</p>
 
-          <p>
-          I enjoy learning and turning what I learn into something that actually works, and I’m always looking for new challenges that push me outside of what I already know.
-          Outside of engineering, I spend a lot of my time at the gym and playing sports
-
+<p>
+  Recently, I&apos;ve been exploring these areas through PCB design, while taking on new challenges that push me
+  beyond what I already know. Outside of engineering, I spend a lot
+  of my time at the gym and playing sports.
+</p>
           </p>
         </div>
       </div>
@@ -632,7 +634,7 @@ function Contact() {
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end lg:gap-24">
           <div>
             <span className="eyebrow text-[#668079]">Contact</span>
-            <p className="mt-5 max-w-xs text-lg leading-8 text-[#4b6961]">I&apos;m open to engineering internship opportunities and conversations.</p>
+            <p className="mt-5 max-w-xs text-lg leading-8 text-[#4b6961]">I’m always open to connecting, collaborating, and exploring new opportunities.</p>
           </div>
           <div>
              <h2 className="max-w-3xl text-5xl font-bold leading-[0.9] tracking-[-0.075em] text-[#173c39] sm:text-7xl">Let&apos;s build<br /><span className="text-[#66a48f]">something.</span></h2>
