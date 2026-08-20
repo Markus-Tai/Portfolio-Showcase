@@ -370,9 +370,7 @@ function Projects({ onOpen }: { onOpen: (image: ProjectImage) => void }) {
               Project / 01
             </span>
 
-            <p className="mt-6 max-w-xs text-lg leading-8 text-[#4b6961]">
-              From schematic capture to working hardware.
-            </p>
+  
           </div>
 
           <div>
@@ -395,7 +393,6 @@ function Projects({ onOpen }: { onOpen: (image: ProjectImage) => void }) {
                 'Personal project',
                 'Altium Designer',
                 'ESP32-S3-MINI',
-                'Built & tested',
               ].map((item) => (
                 <span
                   key={item}
@@ -615,39 +612,13 @@ function Projects({ onOpen }: { onOpen: (image: ProjectImage) => void }) {
 
             <div className="max-w-2xl space-y-5 text-[17px] leading-8 text-[#355c55]">
               <p>
-                This project gave me experience with the complete PCB
-                development cycle rather than one isolated part of it.
+                This project gave me my first experience taking a PCB through
+          the entire process, from the initial schematic to a working
+          physical board.
               </p>
 
-              <p>
-                Working through schematic design, layout, fabrication,
-                assembly, and bring-up showed me how decisions made
-                early in the design affect everything that comes
-                afterward. Small details in CAD become much more
-                important once you're debugging physical hardware.
-              </p>
+        
             </div>
-          </div>
-
-          <div className="mt-16 grid gap-4 sm:grid-cols-3">
-            {[
-              ['01', 'Schematic'],
-              ['02', 'PCB layout'],
-              ['03', 'Bring-up'],
-            ].map(([number, label]) => (
-              <div
-                key={label}
-                className="rounded-3xl border border-[#cbd7cc] p-6"
-              >
-                <span className="font-mono text-xs text-[#66a48f]">
-                  {number}
-                </span>
-
-                <p className="mt-10 text-lg font-semibold text-[#20534e]">
-                  {label}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </article>
