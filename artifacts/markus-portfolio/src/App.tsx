@@ -253,33 +253,38 @@ function Hero() {
 
 function About() {
   const reveal = useReveal();
+
   return (
-    <section id="about">
-  <p className="text-sm font-mono uppercase tracking-[0.14em] text-[#66a48f]">
-    About me
-  </p>
+    <section
+      id="about"
+      className="mx-auto max-w-[1360px] px-5 py-24 sm:px-8 lg:px-16 lg:py-32"
+    >
+      <div ref={reveal.ref} className={reveal.className}>
+        <p className="text-sm font-mono uppercase tracking-[0.14em] text-[#66a48f]">
+          About me
+        </p>
 
-  <h2 className="mt-4 max-w-3xl text-3xl font-medium leading-tight tracking-[-0.03em] text-[#173c39] sm:text-4xl">
-    I’m a second-year Electrical Engineering student at UBC with a strong
-    interest in embedded systems, electronics, and PCB design.
-  </h2>
+        <h2 className="mt-5 max-w-2xl text-3xl font-medium leading-tight tracking-[-0.03em] text-[#173c39] sm:text-4xl">
+          I like building things that bridge hardware and software.
+        </h2>
 
-  <div className="mt-8 max-w-2xl space-y-5 text-[18px] leading-8 text-[#355c55]">
+        <div className="mt-8 max-w-2xl space-y-5 text-[17px] leading-8 text-[#355c55] sm:text-[18px]">
+          <p>
+            I&apos;m a second-year Electrical Engineering student at UBC
+            interested in embedded systems, electronics, and PCB design. I
+            enjoy learning through hands-on projects and turning ideas into
+            working hardware.
+          </p>
 
-    <p>
-      I’m interested in projects that combine hardware and software,
-      and I’m always looking for opportunities to learn new tools, solve
-      technical problems, and build things hands-on.
-    </p>
-
-    <p>
-      Outside of school, I enjoy going to the gym and playing sports.
-    </p>
-  </div>
-</section>
+          <p>
+            Outside of school, I enjoy going to the gym, playing sports, and
+            staying active.
+          </p>
+        </div>
+      </div>
+    </section>
   );
 }
-
 function HomeProjects() {
   const reveal = useReveal();
   return (
