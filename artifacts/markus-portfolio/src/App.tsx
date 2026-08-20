@@ -219,12 +219,11 @@ function Navbar() {
 }
 
 function Hero() {
-  const reveal = useReveal();
   return (
-    <section id="top" className="relative mx-auto flex min-h-[680px] max-w-[1360px] flex-col justify-end px-5 pb-16 pt-36 sm:px-8 sm:pb-20 lg:min-h-[760px] lg:px-16 lg:pb-24">
+    <section id="top" className="relative mx-auto flex min-h-[100svh] max-w-[1360px] flex-col justify-center px-5 pb-16 pt-28 sm:px-8 sm:pb-20 lg:min-h-[760px] lg:justify-end lg:px-16 lg:pb-24">
       <div className="hero-grid pointer-events-none absolute inset-0 -z-0 opacity-70" />
       <div className="relative z-10">
-        <div ref={reveal.ref} className={reveal.className}>
+        <div>
           <div className="mb-8 flex items-center gap-3 text-[#668079]">
             <span className="h-px w-9 bg-[#66a48f]" />
             <span className="eyebrow">Electrical engineering</span>
