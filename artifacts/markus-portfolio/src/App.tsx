@@ -7,7 +7,7 @@ import {
   ChevronRight,
   CircuitBoard,
   ExternalLink,
-  Mail,
+  Mail, 
   Maximize2,
   Menu,
   MoveUpRight,
